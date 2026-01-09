@@ -1,0 +1,33 @@
+/* override.css – zona final do Aequita */
+
+
+.card-link:hover {
+    background: #1fbf63; /* verde um pouco mais vivo */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+}
+
+.card.card-link:hover {
+    background: #1fbf63 !important;
+}
+section.apoio {
+    background: transparent;
+    padding: 0;
+}
+
+.resultado {
+    background-color: #e6f4ea; /* verde suave */
+    border: 1px solid #2e7d32;
+    color: #1b1b1b; /* texto padrão escuro */
+}
+
+.resultado-valor {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1b1b1b; /* força o valor */
+}
+
+.resultado-info p {
+    color: #333;
+}
+

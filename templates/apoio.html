@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="apoio">
+    <div class="card apoio-card">
+
+    <h2>Apoiar o Aequita</h2>
+
+    <p>
+        O Aequita é um projeto independente.
+        Se ele foi útil para você e quiser apoiar sua evolução,
+        utilize o PIX abaixo.
+    </p>
+
+    <img
+        src="{{ url_for('static', filename='img/qr_code_pix.png') }}"
+        alt="QR Code PIX Aequita"
+        class="qr-img"
+    >
+
+    <p class="pix-label">Código PIX (copia e cola):</p>
+
+    <textarea id="pixCode" readonly class="pix-textarea">
+00020126580014BR.GOV.BCB.PIX0136906523b7-1fe8-42a4-8f33-5eed3c863ede5204000053039865802BR5919Wilson Jose Stefani6009SAO PAULO62140510C6HFl45psx6304441F
+    </textarea>
+
+    <button id="btnCopiarPix" class="btn-pix">
+        📋 Copiar código PIX
+    </button>
+
+    <p id="pixMsg" class="pix-msg"></p>
+    </div>
+</section>
+
+
+<div class="voltar">
+    <a href="/" class="btn-principal">← Voltar para a página inicial</a>
+</div>
+
+
+{% endblock %}

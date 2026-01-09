@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Aequita Calculus{% endblock %}</title>
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/override.css') }}">
+
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <h1 class="logo">Aequita</h1>
+            <span class="tagline">Atualização Monetária</span>
+        </div>
+    </header>
+
+    <main class="site-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            © 2025 — Aequita Calculus<br>
+            Projeto independente em desenvolvimento contínuo.
+        </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</html>

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card calculo-entrada">
+
+    <h2>Cálculo de Atualização Monetária</h2>
+    <p>Informe os dados abaixo para simular a correção do valor.</p>
+
+    <form class="calculo-form">
+
+        <div class="form-group">
+            <label for="valor">Valor original</label>
+            
+        
+        <input 
+           type="text" 
+           id="valor" 
+           placeholder="0,00"
+           inputmode="numeric"
+           autocomplete="off"
+         >
+         
+         </div>
+
+        <div class="form-group">
+            <label for="data_inicio">Data inicial</label>
+            <input type="date" id="data_inicio">
+        </div>
+
+        <div class="form-group">
+            <label for="data_fim">Data final</label>
+            <input type="date" id="data_fim">
+        </div>
+
+        <div class="form-group">
+            <label for="indice">Índice</label>
+            <select id="indice" name="indice">
+                <option value="">Carregando índices...</option>
+            </select>
+
+        </div>
+        <div class="form-group checkbox">
+            <label>
+                <input type="checkbox" id="aceitar_negativos" checked>
+                Aceitar índices negativos
+            </label>
+        </div>
+
+        <button type="submit">Calcular</button>
+
+    </form>
+</div>
+
+    <div class="card calculo-resultado" id="resultado" style="display: none;">
+
+    <h3>Resultado da atualização</h3>
+
+    <div class="resultado-valor">
+        R$ <span id="valor-resultado">1.365,88</span>
+    </div>
+
+    <div class="resultado-info">
+        <p><strong>Índice:</strong> IGPM</p>
+        <p><strong>Período:</strong> 01/09/2020 até 01/08/2023</p>
+    </div>
+
+</div>
+
+
+
+<nav class="voltar">
+    <a href="/">← Página inicial</a>
+</nav>
+
+</section>
+{% endblock %}

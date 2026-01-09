@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="hero">
+        <div class="card-base">
+        <h2>Aequita Calculus</h2>
+        <p class="hero-sub">
+            Atualização monetária baseada em índices econômicos oficiais,
+            com foco em clareza, precisão e simplicidade.
+        </p>
+
+        <p class="hero-desc">
+            Ideal para profissionais do direito, perícia, contabilidade
+            e para quem precisa de resultados confiáveis sem sistemas complexos.
+        </p>
+        </div>
+    </section>
+
+<section class="cards">
+
+    <div class="card-base">
+        <h3>Por que usar o Aequita?</h3>
+
+        <ul>
+            <li>✔ Cálculos consistentes e verificáveis</li>
+            <li>✔ Baseado em índices econômicos conhecidos (ex: IGPM)</li>
+            <li>✔ Sem cadastros obrigatórios</li>
+            <li>✔ Evolução contínua e transparente</li>
+        </ul>
+    </div>
+
+    <div class="card card-link" data-href="/calculo">
+
+        <h3>Cálculo rápido</h3>
+
+        <p>
+            Faça a atualização monetária de forma simples,
+            sem cadastro e com índices econômicos oficiais.
+        </p>
+
+        <a href="/calculo" class="btn-principal">
+            Ir para o cálculo rápido
+        </a>
+
+        <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.9;">
+            Sem login. Resultado imediato.
+        </p>
+    </div>
+
+</section>
+
+
+<section class="cards cards-mosaic">
+
+    <div class="card card-lead">
+        <h3>Receba novidades do Aequita</h3>
+        <p>
+            Atualizações de índices, melhorias no cálculo
+            e novos recursos — sem spam.
+        </p>
+
+        <input type="email" placeholder="seu@email.com">
+        <button class="btn-principal">Quero receber</button>
+    </div>
+
+    <div class="card card-link" data-href="/apoio">
+
+        <h4>Apoie o projeto</h4>
+        <p>
+            Se o Aequita te ajuda, considere apoiar
+            para manter o projeto vivo.
+        </p>
+          <a href="/apoio" class="btn-apoio">Apoiar o Aequita
+        <button class="btn-secundario">Apoiar</button>
+          </a>
+    </div>
+
+</section>
+</div>
+
+
+{% endblock %}
