@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const leadForm = document.getElementById("lead-form");
     const leadMsg = document.getElementById("leads-msg");
 
+    const API_BASE =
+      window.location.hostname === "localhost"
+        ? "http://127.0.0.1:8000"
+        : "https://aequita-api.onrender.com";
+
+
+
     if (leadForm) {
         leadForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -44,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectIndice = document.getElementById("indice");
 
     if (selectIndice) {
-        fetch("http://localhost:8000/indices")
+        fetch(`${API_BASE}/indices`)
             .then(r => r.json())
             .then(data => {
                 selectIndice.innerHTML = "";
@@ -85,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
 
-            fetch("http://localhost:8000/calcular", {
+            fetch(`${API_BASE}/calcular`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
@@ -111,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function carregarIndices() {
-    fetch("http://localhost:8000/indices")
+    fetch(`${API_BASE}/indices`)
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById("indice");
