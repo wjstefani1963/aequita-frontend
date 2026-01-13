@@ -104,6 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         minimumFractionDigits: 2
                     });
 
+                 document.getElementById("resultado-indice").textContent =
+                     payload.indice.toUpperCase();
+                    
+                document.getElementById("resultado-inicio").textContent =
+                    formatarDataBR(payload.data_inicio);
+
+                document.getElementById("resultado-fim").textContent =
+                    formatarDataBR(payload.data_fim);             
                 resultado.style.display = "block";
             })
             .catch(() => alert("Erro ao calcular"));
@@ -191,3 +199,10 @@ document.querySelectorAll('.card-link').forEach(card => {
         window.location.href = this.dataset.href;
     });
 });
+
+
+function formatarDataBR(dataISO) {
+    if (!dataISO) return "";
+    const [ano, mes, dia] = dataISO.split("-");
+    return `${dia}/${mes}/${ano}`;
+}
