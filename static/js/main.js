@@ -240,3 +240,20 @@ btnLead.addEventListener('click', async () => {
         alert("Erro ao enviar email.");
     }
 });
+
+
+document.getElementById("btn-lead").addEventListener("click", function() {
+    const email = document.getElementById("email-lead").value;
+    if (!email) return alert("Digite um email!");
+
+    fetch("https://seu-api.onrender.com/lead", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+    })
+    .then(res => res.json())
+    .then(data => alert("Email cadastrado com sucesso!"))
+    .catch(err => alert("Erro ao enviar email: " + err));
+});
