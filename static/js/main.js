@@ -206,3 +206,37 @@ function formatarDataBR(dataISO) {
     const [ano, mes, dia] = dataISO.split("-");
     return `${dia}/${mes}/${ano}`;
 }
+
+
+// Seleciona o input e o botão
+const inputEmail = document.querySelector('.card-lead input[type="email"]');
+const btnLead = document.querySelector('.card-lead .btn-principal');
+
+btnLead.addEventListener('click', async () => {
+    const email = inputEmail.value.trim();
+    if (!email) {
+        alert("Digite um email válido!");
+        return;
+    }
+
+    try {
+        const response = await fetch("https://seu-endereco-api.onrender.com/lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Email registrado com sucesso!");
+            inputEmail.value = ""; // limpa o campo
+        } else {
+            alert("Erro: " + (data.error || "Não foi possível registrar o email."));
+        }
+
+    } catch (err) {
+        console.error(err);
+        alert("Erro ao enviar email.");
+    }
+});

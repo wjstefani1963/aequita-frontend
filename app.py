@@ -23,12 +23,14 @@ def apoio():
 def calculo():
     return render_template("calculo.html")
 
-@app.get("/versao")
+@app.route("/versao")
 def versao():
     return {
+        "app": "aequita-frontend",
         "versao": "2026-01-14",
-        "commit": "d26ba1d"
+        "api": "https://aequita-api.onrender.com"
     }
+
 
 
 
