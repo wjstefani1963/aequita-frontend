@@ -27,7 +27,7 @@ def calculo():
 def versao():
     return {
         "app": "aequita-frontend",
-        "versao": "2026-01-14",
+        "versao": "2026-01-16",
         "api": "https://aequita-api.onrender.com"
     }
 

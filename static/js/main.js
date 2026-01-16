@@ -242,18 +242,31 @@ btnLead.addEventListener('click', async () => {
 });
 
 
-document.getElementById("btn-lead").addEventListener("click", function() {
-    const email = document.getElementById("email-lead").value;
-    if (!email) return alert("Digite um email!");
+document.getElementById("btn-lead").addEventListener("click", async function() {
+    const email = document.getElementById("email-lead").value.trim();
 
-    fetch("https://seu-api.onrender.com/lead", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email })
-    })
-    .then(res => res.json())
-    .then(data => alert("Email cadastrado com sucesso!"))
-    .catch(err => alert("Erro ao enviar email: " + err));
+    if (!email) return alert("Digite um email!");
+    
+    // Validação simples de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) return alert("Digite um email válido!");
+
+    try {
+        const res = await fetch("https://aequita-api.onrender.com/lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email })
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.status === "ok") {
+            alert("Email cadastrado com sucesso!");
+            document.getElementById("email-lead").value = ""; // limpa o campo
+        } else {
+            alert("Erro ao enviar email: " + (data.detail || "Servidor retornou erro"));
+        }
+    } catch (err) {
+        alert("Erro de conexão: " + err.message);
+    }
 });
